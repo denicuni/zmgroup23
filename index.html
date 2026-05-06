@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZM.Group23</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="progress"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SEZIONE 1 — ANIMAZIONE THREE.JS
+  ════════════════════════════════════════════ -->
+  <section id="sezione-animazione">
+    <div id="pannello-sticky">
+
+      <div id="scene-bg"></div>
+      <div id="butterfly-glow"></div>
+      <canvas id="three-canvas"></canvas>
+
+      <nav id="navbar">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#sezione-slider">Chi siamo</a></li>
+          <li><a href="#sezione-cards">Servizi</a></li>
+          <li><a href="#sezione-contatti">Contatti</a></li>
+          <li><a href="#sezione-contatti">Portfolio</a></li>
+          <li><a href="#sezione-contatti">Team</a></li>
+        </ul>
+      </nav>
+
+      <div id="countdown-wrapper">
+        <p class="countdown-pretitle">La nostra visione tra</p>
+        <div class="countdown-grid">
+          <div class="cd-block">
+            <span class="cd-number" id="cd-days">00</span>
+            <span class="cd-unit">Giorni</span>
+          </div>
+          <div class="cd-block">
+            <span class="cd-number" id="cd-hours">00</span>
+            <span class="cd-unit">Ore</span>
+          </div>
+          <div class="cd-block">
+            <span class="cd-number" id="cd-minutes">00</span>
+            <span class="cd-unit">Minuti</span>
+          </div>
+          <div class="cd-block">
+            <span class="cd-number" id="cd-seconds">00</span>
+            <span class="cd-unit">Secondi</span>
+          </div>
+        </div>
+        <div class="countdown-line"></div>
+      </div>
+
+      <svg id="scroll-ring" viewBox="0 0 36 36">
+        <circle cx="18" cy="18" r="15.9"/>
+        <circle class="progress-arc" cx="18" cy="18" r="15.9" pathLength="100"/>
+      </svg>
+
+      <div id="frame-counter">01 / 121</div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SEZIONE 2 — SLIDER "CHI SIAMO"
+  ════════════════════════════════════════════ -->
+  <section id="sezione-slider">
+    <div class="slider-section-header">
+      <span class="s-label">La nostra visione</span>
+    </div>
+    <div class="slider-outer">
+
+      <!-- FRECCIA SINISTRA -->
+      <button class="slide-arrow arrow-left hidden" id="arrowLeft" aria-label="Scheda precedente">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- VIEWPORT -->
+      <div class="slider-viewport">
+        <div class="slider-track" id="sliderTrack">
+
+          <!-- SCHEDA 1 -->
+          <div class="slide">
+            <span class="slide-label">01 / Il dato</span>
+            <h2 class="slide-title">Ti starai chiedendo perché<br>un profilo che gestisce social<br>ha a malapena <em>un post.</em></h2>
+            <p class="slide-body">Il cervello umano riceve circa 11 milioni di informazioni al secondo.<br>Ne elabora consapevolmente circa <strong>40</strong>.<br>40 su 11 milioni.<br><br>La soglia media di attenzione online è tra <strong>1,7 e 3 secondi</strong>.<br>In quei 3 secondi il cervello decide:<br><em>"Resto"</em> o <em>"Scorro"</em>.<br>È biologia.</p>
+          </div>
+
+          <!-- SCHEDA 2 -->
+          <div class="slide">
+            <span class="slide-label">02 / Il problema</span>
+            <h2 class="slide-title">La maggior parte delle persone pubblica contenuti che non superano<br><em>quei 3 secondi.</em></h2>
+            <p class="slide-body">Non perché siano stupidi.<br>Perché non capiscono come funziona l'attenzione.<br><br>Quando questo timer arriva a zero non vedrai un video carino istituzionale.<br>Ti faccio vedere cosa la maggior parte delle persone ignora.<br><strong>Come funziona davvero la soglia dell'attenzione umana.</strong></p>
+          </div>
+
+          <!-- SCHEDA 3 -->
+          <div class="slide">
+            <span class="slide-label">03 / La dimostrazione</span>
+            <h2 class="slide-title">Se sei arrivato fin qui,<br>non è <em>casuale.</em></h2>
+            <p class="slide-body">Ho usato pattern psicologici precisi:</p>
+            <div class="slide-tags" style="margin-bottom: 1.6rem;">
+              <span class="stag">Numeri specifici</span>
+              <span class="stag">Frasi brevi</span>
+              <span class="stag">Interruzioni di schema</span>
+              <span class="stag">Open loop</span>
+              <span class="stag">Ritmo visivo</span>
+            </div>
+            <p class="slide-body" style="margin-bottom: 1.6rem;">Non ti ho intrattenuto.<br><strong>Ho guidato la tua attenzione.</strong><br>Questo ti dimostra che il meccanismo è reale.</p>
+            <a href="#sezione-contatti" class="slide-cta">Clicca qui — scopri cosa ignorano →</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FRECCIA DESTRA -->
+      <button class="slide-arrow arrow-right blink" id="arrowRight" aria-label="Scheda successiva">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div>
+
+    <!-- DOTS -->
+    <div class="slider-dots" id="sliderDots"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SEZIONE 3 — CARDS "COSA FACCIAMO"
+  ════════════════════════════════════════════ -->
+  <section id="sezione-cards">
+    <div class="cards-section-inner">
+
+      <div class="cards-header reveal">
+        <span class="s-label">Cosa facciamo</span>
+        <h2 class="cards-title">Soluzioni che <em>trasformano</em></h2>
+        <p class="cards-sub">Un ecosistema di servizi pensati per accelerare la crescita della tua azienda nel mondo digitale.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-num">01</span>
+          <span class="card-icon">⬡</span>
+          <h3 class="card-title">Strategia Digitale</h3>
+          <p class="card-text">Analizziamo il tuo mercato e costruiamo roadmap su misura. Ogni decisione è guidata dai dati, ogni azione misurata sui risultati reali.</p>
+          <span class="card-tag">Strategy</span>
+        </div>
+        <div class="card">
+          <span class="card-num">02</span>
+          <span class="card-icon">◈</span>
+          <h3 class="card-title">Product Design</h3>
+          <p class="card-text">Interfacce che comunicano prima ancora di essere usate. Design systems scalabili, UX research profonda e prototipazione rapida.</p>
+          <span class="card-tag">Design</span>
+        </div>
+        <div class="card">
+          <span class="card-num">03</span>
+          <span class="card-icon">⬢</span>
+          <h3 class="card-title">Sviluppo Full-Stack</h3>
+          <p class="card-text">Dal backend al frontend, architetture cloud-native ad alta disponibilità. Codice pulito, documentato, testato e pronto per scalare.</p>
+          <span class="card-tag">Engineering</span>
+        </div>
+        <div class="card">
+          <span class="card-num">04</span>
+          <span class="card-icon">◎</span>
+          <h3 class="card-title">Growth & Analytics</h3>
+          <p class="card-text">Dashboard in tempo reale, A/B testing continuo e ottimizzazione delle conversion. I tuoi KPI al centro di ogni sprint.</p>
+          <span class="card-tag">Growth</span>
+        </div>
+        <div class="card">
+          <span class="card-num">05</span>
+          <span class="card-icon">⟁</span>
+          <h3 class="card-title">Brand Identity</h3>
+          <p class="card-text">Identità visive che resistono al tempo. Loghi, sistemi tipografici, palette e guidelines che parlano al cuore del tuo pubblico.</p>
+          <span class="card-tag">Branding</span>
+        </div>
+        <div class="card">
+          <span class="card-num">06</span>
+          <span class="card-icon">⊕</span>
+          <h3 class="card-title">Consulenza & Mentorship</h3>
+          <p class="card-text">Non solo esecutori: siamo partner strategici. Sessioni settimanali, revisioni di architettura e supporto diretto al tuo team interno.</p>
+          <span class="card-tag">Advisory</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SEZIONE 4 — CONTATTI
+  ════════════════════════════════════════════ -->
+  <section id="sezione-contatti">
+    <div class="contatti-inner">
+
+      <div class="contatti-header">
+        <div class="reveal"><span class="s-label">Parliamo</span></div>
+        <div class="reveal"><h2 class="contatti-title">Pronti a <em>costruire</em><br>qualcosa di grande?</h2></div>
+        <div class="reveal"><p class="contatti-sub">Siamo un gruppo di professionisti appassionati. Ogni progetto inizia da una conversazione onesta.</p></div>
+      </div>
+
+      <div class="info-cards reveal">
+        <div class="info-card">
+          <span class="info-icon">✉</span>
+          <p class="info-tipo">Email</p>
+          <p class="info-val">hello@zmgroup23.com</p>
+          <p class="info-desc">Per nuovi progetti, collaborazioni o domande. Rispondiamo entro 24 ore lavorative.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">📍</span>
+          <p class="info-tipo">Sede</p>
+          <p class="info-val">Milano, Italia</p>
+          <p class="info-desc">Lavoriamo in remoto su tutta Italia ed Europa. Il nostro hub è nel quartiere Isola, Milano.</p>
+        </div>
+        <div class="info-card">
+          <span class="info-icon">⏰</span>
+          <p class="info-tipo">Disponibilità</p>
+          <p class="info-val">Lun – Ven · 9:00 – 18:00</p>
+          <p class="info-desc">Per urgenze su progetti attivi siamo raggiungibili anche fuori orario tramite Slack.</p>
+        </div>
+      </div>
+
+      <div class="form-social-row reveal">
+        <div class="form-block">
+          <h3 class="form-block-title">Invia un <span>messaggio</span></h3>
+          <div class="form-row">
+            <input class="f-input" type="text" placeholder="Nome e cognome">
+            <input class="f-input" type="email" placeholder="Indirizzo email">
+            <input class="f-input" type="text" placeholder="Azienda (opzionale)">
+            <textarea class="f-input" placeholder="Raccontaci il tuo progetto..."></textarea>
+            <button class="f-btn">Invia messaggio →</button>
+          </div>
+        </div>
+        <div class="social-block">
+          <h3 class="social-block-title">Seguici <span>ovunque</span></h3>
+          <div class="social-list">
+            <a href="#" class="social-item"><span class="social-item-name">⟡ Instagram</span><span class="social-arrow">→</span></a>
+            <a href="#" class="social-item"><span class="social-item-name">⟡ LinkedIn</span><span class="social-arrow">→</span></a>
+            <a href="#" class="social-item"><span class="social-item-name">⟡ Behance</span><span class="social-arrow">→</span></a>
+            <a href="#" class="social-item"><span class="social-item-name">⟡ GitHub</span><span class="social-arrow">→</span></a>
+            <a href="#" class="social-item"><span class="social-item-name">⟡ Dribbble</span><span class="social-arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="footer-brand">ZMGROUP</div>
+        <nav class="footer-nav">
+          <a href="#">Home</a>
+          <a href="#">Servizi</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Team</a>
+          <a href="#">Contatti</a>
+        </nav>
+        <p class="footer-copy">© 2025 ZMGROUP — Tutti i diritti riservati · P.IVA 12345678901</p>
+      </footer>
+
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="frames.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
